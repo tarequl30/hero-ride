@@ -1,0 +1,15 @@
+/* .home{
+    border: 4px solid black;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+} */
+.home{
+    /* border: 4px solid black; */
+    background: cover;
+    height: 620px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+  }
