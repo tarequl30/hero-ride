@@ -13,6 +13,13 @@ const Book = () => {
           setTicket(selectedTicket)
     }, [ticketId])
     console.log(ticket)
+    // const [click, setClicked] = useState({
+    //     isClicked: false,
+    //     detail: ''
+    // })
+    // const handleClick = {
+      
+    // }
     return (
         <>
         <div className="bookingTicket">
@@ -22,7 +29,14 @@ const Book = () => {
                 <br/>
                 <p>Drop</p>
                 <input type="text" placeholder="Drop Destination"/>
-                <button>Search</button>
+                {/* onClick={handleClick} */}
+                    <button >Search</button>  
+                
+               {/* <div>
+                   <p>mirpur 1</p>
+                   <p>Dhnamondi</p>
+                   <h5>Ticket 1 {price}</h5>
+               </div> */}
             </div>
             <div>
                 <img src={map} alt="" width="100%" height="85%"/>

@@ -6,19 +6,23 @@ import {UserContext} from '../../App'
 import './Login.css'
 import fb from '../Images/fb.png'
 import google from '../Images/google.png'
+import { useHistory, useLocation } from 'react-router';
 
 if(firebase.apps.length === 0){
     firebase.initializeApp(firebaseConfig)
   }
 const Login = () => {
-    const [newUser, setNewUser] = useContext(UserContext)
-    const [user , setUser] = useState({
+    const [newUser , setNewUser] = useContext(UserContext)
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+const [user , setUser] = useState({
       signedIn: false,
       name:'',
       email:'',
       password :'',
       photo:'',
-    })
+})
     var provider = new firebase.auth.GoogleAuthProvider();
     const fbProvider = new firebase.auth.FacebookAuthProvider();
     const handleClick = () => {
@@ -33,15 +37,16 @@ const Login = () => {
               photo: photoURL
         }
         setUser(signedInUser);
-         console.log(displayName, photoURL, email)
-        var credential = result.credential;
-        var token = credential.accessToken;
-        var user = result.user;
+        history.replace(from)
+        //  console.log(displayName, photoURL, email)
+        // var credential = result.credential;
+        // var token = credential.accessToken;
+        // var user = result.user;
       }).catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
+        // var errorCode = error.code;
+        // var errorMessage = error.message;
+        // var email = error.email;
+        // var credential = error.credential;
       });
   }
   const handleFbSignIn = () => {
@@ -53,12 +58,21 @@ const Login = () => {
       var user = result.user;
       console.log('sign in' ,user) 
       var accessToken = credential.accessToken;
+      const {displayName, photoURL, email} = result.user;
+      const signedInUser = {
+        signedIn: true,
+        name: displayName,
+        email: email,
+        photo: photoURL
+  }
+      setUser(signedInUser);
+      history.replace(from)
     })
     .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      var email = error.email;
-      var credential = error.credential;
+      // var errorCode = error.code;
+      // var errorMessage = error.message;
+      // var email = error.email;
+      // var credential = error.credential;
     });
   }
   const handleSignOut = () => {
@@ -100,6 +114,7 @@ const Login = () => {
          newUserInfo.success = true;
          setUser(newUserInfo)
          updateUserInfo(user.name)
+         history.replace(from)
     })
     .catch((error) => {
       const newUserInfo = {...user}
@@ -163,7 +178,7 @@ const Login = () => {
               <h1>Hello, Friend!</h1>
               <p> simply Sign In with</p>
         {
-           user.signedIn ? <button onClick={handleClick}> sign out</button> :
+           user.signedIn ? <button onClick={handleSignOut}> sign out</button> :
            <button onClick={handleClick}> <img src={google} alt="" width="20px"></img> sign in with Google</button>
         //    <a href="login" onClick={handleClick}> <img src={google} alt="" width="20px" />Sign in With Google</a>
         }

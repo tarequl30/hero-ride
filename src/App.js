@@ -11,15 +11,16 @@ import Ride from "./Components/Ride/Ride";
 import Login from "./Components/Login/Login";
 import Book from "./Components/Book/Book";
 import Blog from "./Components/Blog/Blog";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 
 
 export const UserContext = createContext()
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [newUser , setNewUser] = useState({})
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]} >
+    <UserContext.Provider value={[newUser , setNewUser]} >
       {/* <p>name: {loggedInUser.name}</p> */}
       <Router>
         <Header />
@@ -33,9 +34,9 @@ function App() {
           <Route path="/ride">
             <Ride></Ride>
           </Route>
-          <Route path="/book/:ticketId">
+          <PrivateRoute path="/book/:ticketId">
             <Book></Book>
-          </Route>
+          </PrivateRoute>
           <Route path="/blog">
             <Blog></Blog>
           </Route>
