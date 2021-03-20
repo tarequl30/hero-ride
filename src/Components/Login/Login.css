@@ -27,7 +27,7 @@ a {
 	margin: 15px 0;
 }
 
-button{
+.overlay-container button{
 	border-radius: 20px;
 	border: 1px solid #58a5d8;
 	background-color: #426b9b;
@@ -179,6 +179,7 @@ input {
 } */
 
 .overlay-panel {
+	
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -202,6 +203,7 @@ input {
 } */
 
 .overlay-right {
+	margin-left: 40px;
 	right: 0;
 	transform: translateX(0);
 } 

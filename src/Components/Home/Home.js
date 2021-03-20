@@ -1,49 +1,45 @@
 import React from 'react';
 import './Home.css'
-import bg from '../Images/Group 33142.png'
-import bg1 from '../Images/Group 33143.png'
-import bg2 from '../Images/Group 33144.png'
-import bg3 from '../Images/Group 33145.png'
 import Ride from '../Ride/Ride';
 import home from '../Images/homebg1.jpg'
+import image from '../Images/Group 33142.png'
 
-const Home = () => {
-    const style = {
-        display: 'flex',
-        margin: '40px',
-        justifyContent: 'space-between'
+ export const tickets = [
+    {
+        title: 'One Time Ticket',
+        imgUrl: `${image}`,  
+        id: 'One Time',
+        price: 100
+    },
+    {
+        title: 'One Day Pass',
+        imgUrl: `${image}`,
+        // imgUrl: `https://i.ibb.co/Jy3MWPy/Group-33143.png`,   
+        id:'One Day',
+        price: 500
+    },
+    {
+        title: 'Monthly Pass',
+        imgUrl: `${image}`,
+        // imgUrl: `https://i.ibb.co/Vwwk4yt/Group-33144.png`,
+        price: 900,
+        id:'Monthly',
+    },
+    {
+        title: 'Annual Pass',
+        imgUrl: `${image}`,
+        // imgUrl: `https://i.ibb.co/ZKFB3Xg/Group-33145.png`,
+        price: 1500,
+        id:'Annual',
     }
-    const tickets = [
-        {
-            title: 'One Time Ticket',
-            imgUrl: `${bg}`,
-            ticketType: 'Single',
-            price: 100
-        },
-        {
-            title: 'One Day Pass',
-            imgUrl: `${bg1}`,
-            ticketType: 'Single',
-            price: 500
-        },
-        {
-            title: 'Monthly Pass',
-            imgUrl: `${bg2}`,
-            ticketType: 'Single',
-            price: 900
-        },
-        {
-            title: 'Annual Pass',
-            imgUrl: `${bg3}`,
-            ticketType: 'Single',
-            price: 1500
-        }
-        
-    ]
+    
+]
+const Home = () => {
+      
     return (
+        // 
         <div style={{ backgroundImage: ` url(${home})` }} className="home">
-            <div style={style}>
-           
+            <div>
             {
                 tickets.map(ride => <Ride  ride={ride}></Ride>)
             }

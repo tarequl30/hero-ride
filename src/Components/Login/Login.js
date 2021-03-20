@@ -20,7 +20,7 @@ const Login = () => {
       photo:'',
     })
     var provider = new firebase.auth.GoogleAuthProvider();
-    // const fbProvider = new firebase.auth.FacebookAuthProvider();
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
     const handleClick = () => {
       firebase.auth()
       .signInWithPopup(provider)
@@ -44,23 +44,23 @@ const Login = () => {
         var credential = error.credential;
       });
   }
-//   const handleFbSignIn = () => {
-//     firebase
-//     .auth()
-//     .signInWithPopup(fbProvider)
-//     .then((result) => {
-//       var credential = result.credential;
-//       var user = result.user;
-//       console.log('sign in' ,user) 
-//       var accessToken = credential.accessToken;
-//     })
-//     .catch((error) => {
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-//       var email = error.email;
-//       var credential = error.credential;
-//     });
-//   }
+  const handleFbSignIn = () => {
+    firebase
+    .auth()
+    .signInWithPopup(fbProvider)
+    .then((result) => {
+      var credential = result.credential;
+      var user = result.user;
+      console.log('sign in' ,user) 
+      var accessToken = credential.accessToken;
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      var email = error.email;
+      var credential = error.credential;
+    });
+  }
   const handleSignOut = () => {
     firebase.auth().signOut().then( res => {
       const signOutUser = {
@@ -161,14 +161,14 @@ const Login = () => {
       <div class="overlay">
           <div class="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
-              <p> Sign in with Google button to Login</p>
+              <p> simply Sign In with</p>
         {
            user.signedIn ? <button onClick={handleClick}> sign out</button> :
-           <button onClick={handleClick}> sign in with Google</button>
+           <button onClick={handleClick}> <img src={google} alt="" width="20px"></img> sign in with Google</button>
         //    <a href="login" onClick={handleClick}> <img src={google} alt="" width="20px" />Sign in With Google</a>
         }
            <br/>
-           {/* <button onClick={handleFbSignIn}>Sign In with facebook</button> */}
+           <button onClick={handleFbSignIn}><img src={fb} alt="" width="20px"></img>Sign In with facebook</button>
         {
           user.signedIn && <div><p>welcome {user.name}</p>
           <p>Your Email: {user.email}</p> 

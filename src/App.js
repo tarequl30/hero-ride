@@ -10,6 +10,7 @@ import Home from "./Components/Home/Home";
 import Ride from "./Components/Ride/Ride";
 import Login from "./Components/Login/Login";
 import Book from "./Components/Book/Book";
+import Blog from "./Components/Blog/Blog";
 
 
 
@@ -32,8 +33,11 @@ function App() {
           <Route path="/ride">
             <Ride></Ride>
           </Route>
-          <Route path="/book/:ticketType">
+          <Route path="/book/:ticketId">
             <Book></Book>
+          </Route>
+          <Route path="/blog">
+            <Blog></Blog>
           </Route>
           <Route exact path="/">
             <Home />
