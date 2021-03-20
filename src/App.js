@@ -8,7 +8,7 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Ride from "./Components/Ride/Ride";
-import Login from "./Components/Login/Login";
+import Login from './Components/Login/Login'
 import Book from "./Components/Book/Book";
 import Blog from "./Components/Blog/Blog";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
@@ -17,10 +17,13 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 export const UserContext = createContext()
 function App() {
-  const [newUser , setNewUser] = useState({})
-
+  const [user, setUser] = useState({
+    name: null,
+    error: null,
+    loggedIn: false
+})
   return (
-    <UserContext.Provider value={[newUser , setNewUser]} >
+    <UserContext.Provider value={[user , setUser]} >
       {/* <p>name: {loggedInUser.name}</p> */}
       <Router>
         <Header />

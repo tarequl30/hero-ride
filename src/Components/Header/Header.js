@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../Images/ht.jpg'
+import { UserContext } from '../../App';
 
 const Header = () => {
+    const [user, setUser] = useContext(UserContext)
     return (
         <div >
             <nav className="nav">
@@ -25,6 +27,9 @@ const Header = () => {
                     </li>
                     <li>
                         <button className="loginBtn"><Link to="/login">Login</Link></button>
+                    </li>
+                    <li>
+                        {user.name && user.loggedIn && <button className="loginBtn">{user.name}</button>}
                     </li>
                 </ul>
             </nav>
