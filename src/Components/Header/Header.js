@@ -6,6 +6,7 @@ import { UserContext } from '../../App';
 
 const Header = () => {
     const [user, setUser] = useContext(UserContext)
+    
     return (
         <div >
             <nav className="nav">

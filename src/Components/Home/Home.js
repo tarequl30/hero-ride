@@ -14,7 +14,7 @@ import image from '../Images/Group 33142.png'
     {
         title: 'One Day Pass',
         imgUrl: `${image}`,
-        // imgUrl: `https://i.ibb.co/Jy3MWPy/Group-33143.png`,   
+        // imgUrl: `https://i.ibb.co/q93ngCM/Optimized-Group-33142.jpg`,   
         id:'One Day',
         price: 500
     },

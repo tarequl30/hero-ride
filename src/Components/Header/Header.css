@@ -1,4 +1,6 @@
-
+ul li{
+    text-decoration: none;
+}
 .nav{
     
     height: 20px;
@@ -10,20 +12,13 @@
     margin-right: 50px; 
 }
 li img{
-    margin-right: 350px;
+    margin-right: 310px;
     margin-left: 0;
     padding-right: 100px;
 }
 
-Link{
-    color: rgb(71, 36, 36);
-}
-.nav Link{
-    color: rgb(71, 36, 36);
-    text-decoration: none;
-    font-weight: bold;
-}
 .loginBtn button{
+    text-decoration: none;
     outline: none;
     padding: 5px 10px;
     background: rgb(98, 196, 196);

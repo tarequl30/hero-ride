@@ -4,15 +4,10 @@ import React, { useContext } from "react"
 import { useHistory, useLocation } from "react-router"
 import { UserContext } from "../../App"
 import firebaseConfig from './firebase.config';
-// import { UserContext } from "../App"
-// import { firebaseConfig } from "../firebase.config"
-// import {firebaseConfig} from '../Login/firebase.config'
-
+import './Login.css'
 // //icons
 import facebookIcon from "../Images/fb.png"
 import googleIcon from "../Images/google.png"
-// import googleIcon from "../Images/google.png"
-import './Login.css'
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
@@ -24,19 +19,17 @@ const Login = () => {
     const history = useHistory()
     const location = useLocation()
     const { from } = location.state || { from: { pathname: "/" } }
-
     const toggleForm = () => {
         const container = document.querySelector(".container")
         container.classList.toggle("active")
     }
-
-    const handleGoogleSignIn = (event) => {
-        const googleProvider = new firebase.auth.GoogleAuthProvider()
+const handleGoogleSignIn = (event) => {
+    const googleProvider = new firebase.auth.GoogleAuthProvider()
         firebase
             .auth()
             .signInWithPopup(googleProvider)
             .then((result) => {
-                const user = {
+                const user = {  
                     name: result?.user?.displayName,
                     error: null,
                     loggedIn: true,
@@ -54,7 +47,7 @@ const Login = () => {
                 setUser(user)
             })
         event.preventDefault()
-    }
+      }
 
     const handleFbSignIn = (event) => {
         const fbProvider = new firebase.auth.FacebookAuthProvider()
@@ -132,12 +125,6 @@ const Login = () => {
         <section className="login-section">
             <div className="container">
                 <div className="user signinBx">
-                    <div className="imgBx">
-                        <img
-                            src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg"
-                            alt=""
-                        />
-                    </div>
                     <div className="formBx">
                         <form onSubmit={handleSubmit}>
                             <h2>Sign In</h2>
@@ -173,25 +160,9 @@ const Login = () => {
                             <div className="brand-sign-in">
                                 <p>OR SIGN IN WITH </p>
                                 <div className="button-container">
-                                    <button
-                                        onClick={handleGoogleSignIn}
-                                        type="submit"
-                                    >
-                                        <img src={googleIcon} alt="google" />
-                                    </button>
-                                    <button
-                                        onClick={handleFbSignIn}
-                                        type="submit"
-                                    >
-                                        <img
-                                            src={facebookIcon}
-                                            alt="facebook" 
-                                        />
-                                    </button>
-
-                                    <button type="submit">
-                                        {/* <img src={githubIcon} alt="github" /> */}
-                                    </button>
+                                    <button onClick={handleGoogleSignIn} type="submit"><img src={googleIcon} alt="google" /></button>
+                                    <button onClick={handleFbSignIn}  type="submit" > <img src={facebookIcon} alt="facebook"/></button>
+                                    <button type="submit"></button>
                                 </div>
                             </div>
                         </form>
@@ -226,17 +197,12 @@ const Login = () => {
                             </p>
                         </form>
                     </div>
-                    <div className="imgBx">
-                        <img
-                            src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg"
-                            alt=""
-                        />
-                    </div>
                 </div>
             </div>
         </section>
     )
 }
+
 
 export default Login
 // import React, { useContext, useState} from 'react';
@@ -253,36 +219,26 @@ export default Login
 //     firebase.initializeApp(firebaseConfig)
 //   }
 // const Login = () => {
-//     const [newUser , setNewUser] = useContext(UserContext)
+//     const [user, setUser] = useContext(UserContext)
 //     let history = useHistory();
 //     let location = useLocation();
 //     let { from } = location.state || { from: { pathname: "/" } };
-// const [user , setUser] = useState({
-//       signedIn: false,
-//       name:'',
-//       email:'',
-//       password :'',
-//       photo:'',
-// })
+
 //     var provider = new firebase.auth.GoogleAuthProvider();
 //     const fbProvider = new firebase.auth.FacebookAuthProvider();
 //     const handleClick = () => {
 //       firebase.auth()
 //       .signInWithPopup(provider)
 //       .then((result) => {
-//         const {displayName, photoURL, email} = result.user;
-//         const signedInUser = {
-//               signedIn: true,
-//               name: displayName,
-//               email: email,
-//               photo: photoURL
+     
+//         const user = {
+//            name: result?.user?.displayName,
+//             error: null,
+//             loggedIn: true,
 //         }
-//         setUser(signedInUser);
+//         setUser(user);
 //         history.replace(from)
-//          console.log(displayName, photoURL, email)
-//         var credential = result.credential;
-//         var token = credential.accessToken;
-//         var user = result.user;
+         
 //       }).catch((error) => {
 //         var errorCode = error.code;
 //         var errorMessage = error.message;
@@ -295,18 +251,13 @@ export default Login
 //     .auth()
 //     .signInWithPopup(fbProvider)
 //     .then((result) => {
-//       var credential = result.credential;
-//       var user = result.user;
-//       console.log('sign in' ,user) 
-//       var accessToken = credential.accessToken;
-//       const {displayName, photoURL, email} = result.user;
-//       const signedInUser = {
-//         signedIn: true,
-//         name: displayName,
-//         email: email,
-//         photo: photoURL
+      
+//       const user = {
+//          name: result?.user?.displayName,
+//          error: null,
+//         loggedIn: true,
 //   }
-//       setUser(signedInUser);
+//       setUser(user);
 //       history.replace(from)
 //     })
 //     .catch((error) => {

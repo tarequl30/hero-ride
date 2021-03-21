@@ -13,8 +13,6 @@ import Book from "./Components/Book/Book";
 import Blog from "./Components/Blog/Blog";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
-
-
 export const UserContext = createContext()
 function App() {
   const [user, setUser] = useState({
@@ -24,12 +22,11 @@ function App() {
 })
   return (
     <UserContext.Provider value={[user , setUser]} >
-      {/* <p>name: {loggedInUser.name}</p> */}
       <Router>
         <Header />
         <Switch>
           <Route path='/home'>
-            <Home ></Home>
+            <Home></Home>
           </Route>
           <Route  path='/login'>
             <Login></Login>
@@ -44,7 +41,7 @@ function App() {
             <Blog></Blog>
           </Route>
           <Route exact path="/">
-            <Home />
+            <Home/>
           </Route>
         </Switch>
       </Router>
