@@ -14,7 +14,7 @@
     margin-right: 50px;
     border: 1px solid gray;
     border-radius: 10px;
-    height: 420px;
+    height: 510px;
     width: 250px;
     background-color: rgba(199, 193, 193, 0.609);
 }
@@ -23,7 +23,7 @@
     background: rgba(228, 83, 31, 0.822);
     margin: 20px 20px;
     border-radius: 10px;
-    padding: 20px 30px;
+    padding: 10px 30px;
 }
 .ticketPrice{
     padding: 0 10px;
@@ -64,4 +64,14 @@
     font-weight: 800;
     color: rgb(121, 32, 32);
     text-decoration: underline;
+}
+@media screen and (max-width: 400px){
+    .bookingTicket{
+        display: grid;
+        grid-template-columns: min-content;
+    }
+    .mapImg{
+        width: 80%;
+        padding: 60px 45px;
+    }
 }

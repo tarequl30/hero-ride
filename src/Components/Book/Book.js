@@ -4,6 +4,12 @@ import { tickets } from '../Home/Home';
 import map from '../Images/map.png'
 import image from '../Images/tickets.png'
 import './Book.css'
+import Timeline from '@material-ui/lab/Timeline';
+import TimelineItem from '@material-ui/lab/TimelineItem';
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
+import TimelineConnector from '@material-ui/lab/TimelineConnector';
+import TimelineContent from '@material-ui/lab/TimelineContent';
+import TimelineDot from '@material-ui/lab/TimelineDot';
 
 const Book = () => {
     const {ticketId} = useParams();
@@ -21,9 +27,21 @@ const Book = () => {
             {
                 showDetail ? <div className="ticketDetail">
                     <div className="destination">
-                        <h2>Dhaka</h2>
-                        <p>-----></p>
-                        <h2>Sylhet</h2>
+                    <Timeline>
+                        <TimelineItem>
+                            <TimelineSeparator>
+                            <TimelineDot />
+                            <TimelineConnector />
+                            </TimelineSeparator>
+                            <TimelineContent>Dhaka</TimelineContent>
+                        </TimelineItem>
+                        <TimelineItem>
+                            <TimelineSeparator>
+                            <TimelineDot />
+                            </TimelineSeparator>
+                            <TimelineContent>Sylhet</TimelineContent>
+                        </TimelineItem>
+                        </Timeline>
                     </div>
                     <div className="ticketPrice">
                         <h5><img src={image} alt="" width="30px"></img>Ticket {ticketId} $76</h5>
@@ -45,7 +63,7 @@ const Book = () => {
                 <button className="searchBtn" onClick={() => setShowDetail(true)}>Search</button>  
             </div>
             }
-            <div>
+            <div className="mapImg">
                 <img src={map} alt="" width="100%" height="85%"/>
             </div>
         </div>

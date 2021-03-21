@@ -197,3 +197,9 @@
 	  width: 100%;
 	}
   }
+  @media screen and (max-width:400px){
+	 
+	  .login-section{
+		  margin-top: 60px;
+	  }
+  }

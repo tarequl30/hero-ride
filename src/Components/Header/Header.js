@@ -23,9 +23,6 @@ const Header = () => {
                         <Link to="/blog">Blog</Link>
                     </li>
                     <li>
-                        <Link to="/contact">Contact</Link>
-                    </li>
-                    <li>
                         <button className="loginBtn"><Link to="/login">Login</Link></button>
                     </li>
                     <li>

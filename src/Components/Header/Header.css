@@ -23,4 +23,10 @@ li img{
     padding: 5px 10px;
     background: rgb(98, 196, 196);
 }
-  
+
+@media screen and (max-width: 400px){
+    .nav li{
+        display: inline;
+        position: relative;
+    }
+}
