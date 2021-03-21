@@ -5,8 +5,7 @@ import logo from '../Images/ht.jpg'
 import { UserContext } from '../../App';
 
 const Header = () => {
-    const [user, setUser] = useContext(UserContext)
-    
+    const [user, setUser] = useContext(UserContext) 
     return (
         <div >
             <nav className="nav">

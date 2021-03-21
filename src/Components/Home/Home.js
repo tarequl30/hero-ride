@@ -1,7 +1,6 @@
 import React from 'react';
 import './Home.css'
 import Ride from '../Ride/Ride';
-import home from '../Images/homebg1.jpg'
 import image from '../Images/Group 33142.png'
 
  export const tickets = [
@@ -13,22 +12,19 @@ import image from '../Images/Group 33142.png'
     },
     {
         title: 'One Day Pass',
-        imgUrl: `${image}`,
-        // imgUrl: `https://i.ibb.co/q93ngCM/Optimized-Group-33142.jpg`,   
+        imgUrl: `${image}`,   
         id:'One Day',
         price: 500
     },
     {
         title: 'Monthly Pass',
         imgUrl: `${image}`,
-        // imgUrl: `https://i.ibb.co/Vwwk4yt/Group-33144.png`,
         price: 900,
         id:'Monthly',
     },
     {
         title: 'Annual Pass',
         imgUrl: `${image}`,
-        // imgUrl: `https://i.ibb.co/ZKFB3Xg/Group-33145.png`,
         price: 1500,
         id:'Annual',
     }
@@ -38,7 +34,7 @@ const Home = () => {
       
     return (
         // 
-        <div style={{ backgroundImage: ` url(${home})` }} className="home">
+        <div style={{ backgroundImage: ` url('https://i.ibb.co/9ZMVgJ5/City-Landscape-Background.jpg')` }} className="home">
             <div>
             {
                 tickets.map(ride => <Ride  ride={ride}></Ride>)
