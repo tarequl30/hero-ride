@@ -5,7 +5,7 @@ import image from '../Images/Group 33142.png'
 
  export const tickets = [
     {
-        title: 'One Time Ticket',
+        title: 'One Time ',
         imgUrl: `${image}`,  
         id: 'One Time',
         price: 100
@@ -39,6 +39,7 @@ const Home = () => {
             {
                 tickets.map(ride => <Ride  ride={ride}></Ride>)
             }
+
         </div>
         </div>
     );

@@ -14,11 +14,19 @@ const Ride = (props) => {
         float: 'left'
     }
     return (
-        <div style={ticketLayout} className="ticketLayout">
-            <h2>{title}</h2>
-            <Link to={`/book/${id}`}> <button>Buy Now</button>  </Link>
-            <h3>Price : {price} BDT</h3>
-        </div>
+        <>
+            <div style={ticketLayout} className="ticketLayout">
+                <h2>{title}</h2>
+                <Link to={`/book/${id}`}> <button>Buy Now</button>  </Link>
+                <h3>Price : {price} BDT</h3>
+                <h3>Booking Date</h3>
+                <form action="/action.page.php">
+                    <label for="ticketBooking">select Date</label>
+                    <input type="date" name="booking"/>
+                    {/* <input type="submit" value=""/> */}
+                </form>
+            </div>
+        </>
     );
 };
 

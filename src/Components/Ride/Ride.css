@@ -5,6 +5,7 @@
 	border-radius: 5px;
 	background: linear-gradient(to right, #8e9ba3, #afc7d4); ;
     height: 200px;
+	width: 170px;
 }
 .ticketLayout button{
 	margin-top: 40px;
@@ -19,7 +20,12 @@
 	text-transform: uppercase;
 	outline: none;
 }
-
+.ticketLayout>h3{
+	color:#426b9b;
+}
+.ticketLayout form{
+	display: block;
+}
 @media screen and (max-width: 400px) {
 	.ticketLayout {
          margin: 100px 10px 10px 40px !important;

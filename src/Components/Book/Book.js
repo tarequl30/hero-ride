@@ -12,7 +12,7 @@ import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 
 const Book = () => {
-    const {ticketId} = useParams();
+    const {ticketId, price} = useParams();
     const [ticket , setTicket] = useState({})
     const  [showDetail, setShowDetail] = useState(false)
   
@@ -44,7 +44,7 @@ const Book = () => {
                         </Timeline>
                     </div>
                     <div className="ticketPrice">
-                        <h5><img src={image} alt="" width="30px"></img>Ticket {ticketId} $76</h5>
+                        <h5><img src={image} alt="" width="30px"></img>Ticket {ticketId} {price}</h5>
                     </div>
                     <div className="ticketPrice">
                        <h5><img src={image} alt="" width="30px"></img>Ticket {ticketId} $96</h5>   

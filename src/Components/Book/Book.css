@@ -65,6 +65,7 @@
     color: rgb(121, 32, 32);
     text-decoration: underline;
 }
+
 @media screen and (max-width: 400px){
     .bookingTicket{
         display: grid;
